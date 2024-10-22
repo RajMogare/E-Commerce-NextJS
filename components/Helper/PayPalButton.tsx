@@ -1,6 +1,6 @@
 //@ts-nocheck
 
-import React, { act } from "react";
+import React from "react";
 import {
   FUNDING,
   PayPalButtons,
@@ -9,7 +9,7 @@ import {
 
 interface PayPalButtonProps {
   amount: string;
-  onSuccess: (details: any) => void;
+  onSuccess: (details) => void;
 }
 
 const PayPalButton = ({ amount, onSuccess }: PayPalButtonProps) => {

@@ -10,3 +10,22 @@ export type Product={
         count:number;
     }
 }
+
+export type OrderDetails={
+    id: string;
+    status: string;
+    purchase_units: Array<{
+      amount: {
+        currency_code: string;
+        value: string;
+      };
+    }>;
+    payer: {
+      email_address: string;
+      name: {
+        given_name: string;
+        surname: string;
+      };
+    };
+  }
+  
