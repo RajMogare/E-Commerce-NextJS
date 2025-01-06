@@ -9,6 +9,7 @@ import { Button } from "../ui/button";
 import { useDispatch} from "react-redux";
 import { addItem } from "@/store/cartSlice";
 import { useToast } from "@/hooks/use-toast"
+import { addItemtoWishList } from "@/store/wishlistSlice";
 
 type Props = {
   product: Product;
@@ -29,6 +30,14 @@ const ProductCard = ({ product }: Props) => {
     })
     dispatch(addItem(product));
   };
+
+  const addtoWishList=(product:Product)=>{
+    toast({
+      description:"Item added to wishlist",
+      variant:'success'
+    })
+    dispatch(addItemtoWishList(product))
+  }
 
   return (
     <div className="p-4 border rounded-md hover:scale-105 hover:shadow-xs duration-300">
@@ -71,8 +80,10 @@ const ProductCard = ({ product }: Props) => {
       </div>
 
       {/* buttons */}
-      <div className="mt-4 flex items-center space-x-2">
+      <div className="mt-4 flex items-center space-x-2 ">
         <Button
+        title="Add To Cart"
+        className="active:bg-green-500 duration-200"
           onClick={() => {
             addToCartHandler(product);
           }}
@@ -80,7 +91,9 @@ const ProductCard = ({ product }: Props) => {
         >
           <ShoppingBag size={18} />
         </Button>
-        <Button size={"icon"} className="bg-red-500">
+        <Button size={"icon"} className="bg-red-500" title="Add to WishList" onClick={()=>{
+          addtoWishList(product);
+        }}>
           <Heart size={18} />
         </Button>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { redirect } from "next/dist/server/api-utils";
 
 const Hero = () => {
   return (

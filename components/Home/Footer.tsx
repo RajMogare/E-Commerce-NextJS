@@ -47,7 +47,7 @@ const Footer = () => {
       </div>
 
       <div className="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2 justify-between w-4/5 mx-auto">
-        <p className="text-sm text-black opacity-60">Copywrite @ 2024</p>
+        <p className="text-sm text-black opacity-60">Copywrite@ 2025</p>
         <Image
           src="/images/pay.svg"
           alt="pay"

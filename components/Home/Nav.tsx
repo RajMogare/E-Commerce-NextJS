@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import SearchBox from "../Helper/SearchBox";
-import { HeartIcon, UserIcon } from "lucide-react";
+import { UserIcon } from "lucide-react";
 import ShoppingCartButton from "../Helper/ShoppingCartButton";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import WishListButton from "../Helper/WishListButton";
 
 const Nav = () => {
   return (
@@ -17,8 +18,12 @@ const Nav = () => {
 
         {/* icons */}
         <div className="flex  items-center space-x-6">
+
           <SearchBox />
-          <HeartIcon size={26} cursor={"pointer"} />
+
+          {/* <HeartIcon size={26} cursor={"pointer"} /> */}
+          <WishListButton/>
+
           {/* shopiing cart */}
           <ShoppingCartButton />
           
@@ -27,8 +32,8 @@ const Nav = () => {
           <SignedIn>
             <UserButton />
           </SignedIn>
-          {/* not signed in */}
 
+          {/* not signed in */}
           <SignedOut>
             <SignInButton>
               <UserIcon size={26} cursor={"pointer"} />
