@@ -1,31 +1,16 @@
-
 "use client";
 import { Button } from "@/components/ui/button";
 import { addItem, CartItem, removeItem } from "@/store/cartSlice";
 import { RootState } from "@/store/store";
-import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-
 const WishList = () => {
-  const router = useRouter();
   const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.wishlist.items);
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
-
-  const totalPrice = items
-    .reduce((total, item) => total + item.price * item.quantity, 0)
-    .toFixed(2);
-
-  const vat = (+totalPrice * 0.15).toFixed(2);
-
-  const totalPriceWithVat = (+totalPrice + +vat).toFixed(2);
-
-  const { user } = useUser();
 
   const AddToCart = (item: CartItem) => {
     dispatch(addItem(item));
@@ -46,7 +31,9 @@ const WishList = () => {
             height={400}
             className="object-cover mx-auto"
           />
-          <h1 className="mt-8 text-2xl font-semibold">Your WishList is empty</h1>
+          <h1 className="mt-8 text-2xl font-semibold">
+            Your WishList is empty
+          </h1>
 
           <Link href="/">
             <Button className="mt-4">Shop Now</Button>
@@ -104,7 +91,6 @@ const WishList = () => {
               );
             })}
           </div>
-          
         </div>
       )}
     </div>

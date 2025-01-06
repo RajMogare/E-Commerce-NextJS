@@ -1,4 +1,4 @@
-import { addItemtoWishList, removeItemFromWishList, wishListItem } from "@/store/wishlistSlice";
+import {removeItemFromWishList, wishListItem } from "@/store/wishlistSlice";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { Button } from "../ui/button";
@@ -14,7 +14,7 @@ const WishListSideBar = ({ items }: Props) => {
 
     const dispatch=useDispatch();
 
-    const addCardHandler=(item:wishListItem)=>dispatch(addItemtoWishList(item));
+
     const removeCartHandler=(id:number)=>dispatch(removeItemFromWishList({id}))
   return (
     <div className="mt-6 h-full mb-6">
