@@ -16,6 +16,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.cart.items);
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
+  console.log('cart',items)
 
   const totalPrice = items
     .reduce((total, item) => total + item.price * item.quantity, 0)
